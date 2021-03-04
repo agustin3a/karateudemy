@@ -11,11 +11,12 @@ Feature: Tests for the home page
         And match each response.tags == '#string'
         And match response.tags contains 'test'
 
+@regression
     Scenario: Get 10 articles from the page
         Given path '/articles'
         Given params { limit : 10 , offset : 0 }
         When method Get
         Then status 200
-        And match response.articles == '#[10]''
+        And match response.articles == '#[10]'
         And match response.articlesCount == 500
         

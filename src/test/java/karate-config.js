@@ -5,14 +5,19 @@ function fn() {
     env = 'dev';
   }
   var config = {
-    env: env,
-	myVarName: 'someValue'
+	  url: 'https://conduit.productionready.io/api',
+    userEmail: '',
+    userPassword: ''
   }
   if (env == 'dev') {
-    // customize
-    // e.g. config.foo = 'bar';
+    config.userEmail = "testag3a@test.com";
+    config.userPassword = "karate123";
   } else if (env == 'e2e') {
     // customize
   }
+
+  var token = karate.callSingle('classpath:helpers/CreateToken.feature',config).token;
+  karate.configure('headers', {Authorization: 'Token ' + token});
+
   return config;
 }

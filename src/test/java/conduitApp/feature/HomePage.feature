@@ -1,8 +1,8 @@
 Feature: Tests for the home page
 
     Background: Define base URL
-        Given url 'https://conduit.productionready.io/api' 
-
+        Given url url
+        
     Scenario: Get all tags
         Given path '/tags'
         When method Get
@@ -11,7 +11,6 @@ Feature: Tests for the home page
         And match each response.tags == '#string'
         And match response.tags contains 'test'
 
-@regression
     Scenario: Get 10 articles from the page
         Given path '/articles'
         Given params { limit : 10 , offset : 0 }

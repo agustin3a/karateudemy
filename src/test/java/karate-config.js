@@ -16,6 +16,7 @@ function fn() {
     // customize
   }
 
+  // Get token for test user and configure header with the token
   var token = karate.callSingle('classpath:helpers/CreateToken.feature',config).token;
   karate.configure('headers', {Authorization: 'Token ' + token});
 

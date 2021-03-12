@@ -1,4 +1,4 @@
-
+@parallel=false
 Feature: Home Work
 
     Background: Preconditions
